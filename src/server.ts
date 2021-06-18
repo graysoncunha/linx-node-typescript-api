@@ -1,6 +1,6 @@
 import { fastify } from 'fastify';
 
-const port: number = Number(process.env.PORT) || 7000;
+const port: number = Number(process.env.PORT) || 3000;
 
 const uri: string = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogs';
 

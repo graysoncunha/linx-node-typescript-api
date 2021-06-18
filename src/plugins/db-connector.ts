@@ -7,7 +7,7 @@ export interface MyPluginOptions {
   uri: string;
 }
 
-async function ConnectDB(fastify: FastifyInstance, options: FastifyPluginOptions) {
+async function connectDB(fastify: FastifyInstance, options: FastifyPluginOptions) {
   try {
     await mongoose.connect(options.uri, {
       useNewUrlParser: true,
@@ -17,8 +17,6 @@ async function ConnectDB(fastify: FastifyInstance, options: FastifyPluginOptions
 
     fastify.log.info('conectado ao banco de dados');
 
-    // const models: Models = { Blog };
-
     fastify.decorate('db', {});
 
     fastify.addHook('onClose', () => mongoose.disconnect());
@@ -27,4 +25,4 @@ async function ConnectDB(fastify: FastifyInstance, options: FastifyPluginOptions
   }
 }
 
-export default fp(ConnectDB);
+export default fp(connectDB);
