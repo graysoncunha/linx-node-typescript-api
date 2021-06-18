@@ -1,7 +1,8 @@
 import { fastify } from 'fastify';
 
-const Port = process.env.PORT || 7000;
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogs';
+const port: number = Number(process.env.PORT) || 7000;
+
+const uri: string = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogs';
 
 const server = fastify({});
 
@@ -9,7 +10,7 @@ const server = fastify({});
 
 const start = async () => {
   try {
-    await server.listen(Port);
+    await server.listen(port);
     console.log('Server started successfully');
   } catch (err) {
     server.log.error(err);
