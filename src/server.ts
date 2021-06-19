@@ -1,21 +1,28 @@
+import path from 'path';
+
 import { fastify } from 'fastify';
-
-const port: number = Number(process.env.PORT) || 3000;
-
-const uri: string = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogs';
+import autoLoad from 'fastify-autoload';
+import connectDbPlugin from './plugins/db-connector';
 
 const server = fastify({});
 
+const apiPath = path.join(__dirname, 'services');
+
 // register plugin below:
+server.register(connectDbPlugin);
 
-const start = async () => {
-  try {
-    await server.listen(port);
-    console.log('Server started successfully');
-  } catch (err) {
-    server.log.error(err);
-    process.exit(1);
-  }
-};
+server.register(autoLoad, {
+  dir: apiPath,
+  dirNameRoutePrefix: false,
+  maxDepth: 1,
+});
 
-start();
+async function startServer(): Promise<void> {
+  const port = 3000;
+
+  await server.listen(port);
+
+  console.log('Server started successfully');
+}
+
+startServer();
