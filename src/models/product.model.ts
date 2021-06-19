@@ -51,6 +51,7 @@ export const productSchema: Schema<IProduct> = new Schema<IProduct>(
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
 

@@ -47,6 +47,7 @@ export const creditCardSchema: Schema<ICreditCard> = new Schema<ICreditCard>(
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
 
