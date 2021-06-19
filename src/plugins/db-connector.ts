@@ -1,28 +1,18 @@
 import { FastifyInstance } from 'fastify';
-import { FastifyPluginOptions } from 'fastify';
-import fp from 'fastify-plugin';
-import mongoose from 'mongoose';
 
+import fp from 'fastify-plugin';
+
+import { connect, disconnect } from '../db';
 export interface MyPluginOptions {
   uri: string;
 }
 
-async function connectDB(fastify: FastifyInstance, options: FastifyPluginOptions) {
-  try {
-    await mongoose.connect(options.uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    });
+async function connectDB(fastify: FastifyInstance) {
+  await connect();
 
-    fastify.log.info('conectado ao banco de dados');
+  fastify.log.info('conectado ao banco de dados');
 
-    fastify.decorate('db', {});
-
-    fastify.addHook('onClose', () => mongoose.disconnect());
-  } catch (error) {
-    console.error(error);
-  }
+  fastify.addHook('onClose', () => disconnect());
 }
 
 export default fp(connectDB);
