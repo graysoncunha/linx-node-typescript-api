@@ -42,7 +42,7 @@ export const transactionSchema: Schema<ITransaction> = new Schema<ITransaction>(
     },
   },
   {
-    timestamps: true,
+    timestamps: false,
     versionKey: false,
   }
 );
