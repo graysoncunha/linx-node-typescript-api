@@ -1,5 +1,4 @@
 interface IMongoConfig {
-  name: string;
   url: string;
 }
 
@@ -7,7 +6,7 @@ interface IConfiguracaoEnvironment {
   db: IMongoConfig;
 }
 
-async function getConfig(): Promise<IConfiguracaoEnvironment> {
+async function getConfiguracaoEnvironment(): Promise<IConfiguracaoEnvironment> {
   const validEnvs: string[] = ['development', 'production', 'staging', 'test'];
 
   const environment: string = process.env.NODE_ENV || 'development';
@@ -19,4 +18,4 @@ async function getConfig(): Promise<IConfiguracaoEnvironment> {
   return import(`./config.${environment}.json`);
 }
 
-export default getConfig;
+export default getConfiguracaoEnvironment;
