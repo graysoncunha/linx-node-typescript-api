@@ -20,7 +20,7 @@ export interface IProductDocument extends Document {
   updatedAt: string;
 }
 
-export type IProductModel = Model<IProductDocument>;
+export type TypeProductModel = Model<IProductDocument>;
 
 export const productSchema: Schema<IProduct> = new Schema<IProduct>(
   {
@@ -54,4 +54,4 @@ export const productSchema: Schema<IProduct> = new Schema<IProduct>(
   }
 );
 
-export const ProductModel = model<IProductDocument, IProductModel>('Product', productSchema);
+export const ProductModel = model<IProductDocument, TypeProductModel>('Product', productSchema);
