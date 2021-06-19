@@ -54,4 +54,4 @@ export const productSchema: Schema<IProduct> = new Schema<IProduct>(
   }
 );
 
-export const ProductModel = model<IProductDocument, TypeProductModel>('Product', productSchema);
+export const ProductModel = model<IProductDocument, TypeProductModel>('Product', productSchema, 'products');

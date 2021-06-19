@@ -22,7 +22,7 @@ export interface ICreditCardDocument extends Document {
 
 export type TypeCreditCardModel = Model<ICreditCardDocument>;
 
-export const crediCardSchema: Schema<ICreditCard> = new Schema<ICreditCard>(
+export const creditCardSchema: Schema<ICreditCard> = new Schema<ICreditCard>(
   {
     cardNumber: {
       type: String,
@@ -50,4 +50,8 @@ export const crediCardSchema: Schema<ICreditCard> = new Schema<ICreditCard>(
   }
 );
 
-export const CreditCardModel = model<ICreditCardDocument, TypeCreditCardModel>('CreditCard', crediCardSchema);
+export const CreditCardModel = model<ICreditCardDocument, TypeCreditCardModel>(
+  'CreditCard',
+  creditCardSchema,
+  'creditCard'
+);
