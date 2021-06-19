@@ -3,7 +3,6 @@ import { Document, Schema, model, Model } from 'mongoose';
 export interface ICreditCard {
   cardNumber: string;
   cardHolderName: string;
-  totalToPay: number;
   value: number;
   cvv: number;
   exp_date: string;
@@ -12,7 +11,6 @@ export interface ICreditCard {
 export interface ICreditCardDocument extends Document {
   cardNumber: string;
   cardHolderName: string;
-  totalToPay: number;
   value: number;
   cvv: number;
   exp_date: string;
@@ -30,10 +28,6 @@ export const creditCardSchema: Schema<ICreditCard> = new Schema<ICreditCard>(
     },
     cardHolderName: {
       type: Number,
-      required: true,
-    },
-    totalToPay: {
-      type: String,
       required: true,
     },
     value: {
