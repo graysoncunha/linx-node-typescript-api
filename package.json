@@ -7,26 +7,29 @@
     "build": "tsc -w",
     "start": "node build/index.js",
     "lint": "eslint . --ext ts",
-    "test": "node tap"
+    "test": "jest --detectOpenHandles --coverage --verbose"
   },
   "keywords": [],
   "author": "Grayson Cunha",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "26.0.23",
     "@types/node": "15.12.2",
     "@typescript-eslint/eslint-plugin": "4.27.0",
     "@typescript-eslint/parser": "4.27.0",
     "eslint": "7.28.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
+    "jest": "27.0.4",
     "prettier": "2.3.1",
-    "typescript": "4.3.3",
-    "tap": "15.0.9"
+    "ts-jest": "27.0.3",
+    "typescript": "4.3.4"
   },
   "dependencies": {
     "fastify": "3.18.0",
     "fastify-autoload": "3.7.1",
     "fastify-plugin": "3.0.0",
-    "mongoose": "5.12.14"
+    "mongoose": "5.12.14",
+    "ts-node": "10.0.0"
   }
 }
