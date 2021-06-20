@@ -5,7 +5,7 @@ export interface ICreditCard {
   cardHolderName: string;
   value: number;
   cvv: number;
-  exp_date: string;
+  expirationDate: string;
 }
 
 export interface ICreditCardDocument extends Document {
@@ -13,7 +13,7 @@ export interface ICreditCardDocument extends Document {
   cardHolderName: string;
   value: number;
   cvv: number;
-  exp_date: string;
+  expirationDate: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -27,19 +27,20 @@ export const creditCardSchema: Schema<ICreditCard> = new Schema<ICreditCard>(
       required: true,
     },
     cardHolderName: {
-      type: Number,
+      type: String,
       required: true,
     },
     value: {
       type: Number,
       required: true,
     },
-    exp_date: {
+    expirationDate: {
       type: String,
       required: true,
     },
   },
   {
+    _id: false,
     timestamps: false,
     versionKey: false,
   }
