@@ -1,17 +1,19 @@
 import { Document, Schema, model, Model } from 'mongoose';
 
+import { ICreditCard, creditCardSchema } from './credit-card.model';
+
 export interface ITransaction {
   client: string;
   clientName: string;
   totalToPay: number;
-  creditCard: string;
+  creditCard: ICreditCard;
 }
 
 export interface ITransactionDocument extends Document {
   client: string;
   clientName: string;
   totalToPay: number;
-  creditCard: string;
+  creditCard: ICreditCard;
   createdAt: string;
   updatedAt: string;
 }
@@ -32,10 +34,7 @@ export const transactionSchema: Schema<ITransaction> = new Schema<ITransaction>(
       type: String,
       required: true,
     },
-    creditCard: {
-      type: String,
-      required: true,
-    },
+    creditCard: creditCardSchema,
     exp_date: {
       type: String,
       required: true,
