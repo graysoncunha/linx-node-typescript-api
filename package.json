@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -w",
-    "start": "node build/index.js",
+    "start": "ts-node src/server.ts",
     "lint": "eslint . --ext ts",
     "test": "jest --detectOpenHandles --coverage --verbose"
   },
