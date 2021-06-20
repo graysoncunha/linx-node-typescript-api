@@ -35,10 +35,6 @@ export const transactionSchema: Schema<ITransaction> = new Schema<ITransaction>(
       required: true,
     },
     creditCard: creditCardSchema,
-    exp_date: {
-      type: String,
-      required: true,
-    },
   },
   {
     timestamps: false,
