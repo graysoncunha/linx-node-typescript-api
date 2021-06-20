@@ -5,3 +5,4 @@ build
 .stryker-tmp
 package-lock.json
 .DS_Store
+coverage
