@@ -58,7 +58,7 @@ describe('superstore: testa os endpoints', () => {
     await fastify.close();
 
     expect(statusCode).toBe(200);
-    expect(objectBody).toBeGreaterThanOrEqual(1);
+    expect(objectBody.length).toBeGreaterThanOrEqual(1);
   });
 
   it('starstore: deve listar todas as compras de um cliente', async () => {
