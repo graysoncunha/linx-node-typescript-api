@@ -1,10 +1,10 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
-import { ProductModel } from '../../models/product.model';
+import { ProductModel, IProduct } from '../../models/product.model';
 
 export default async function createProduct(fastify: FastifyInstance): Promise<void> {
   fastify.post('/products', {}, async (req: FastifyRequest, reply: FastifyReply) => {
-    const dadosProduto = req.body;
+    const dadosProduto = req.body as IProduct;
 
     const productModel = new ProductModel(dadosProduto);
 
