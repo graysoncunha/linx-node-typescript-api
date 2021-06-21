@@ -8,7 +8,12 @@ export async function dropCollections() {
   const collections = await mongoose.connection.db.collections();
 
   for (const { collectionName } of collections) {
-    await mongoose.connection.dropCollection(collectionName);
+    try {
+      await mongoose.connection.dropCollection(collectionName);
+    } catch {
+      await disconnect();
+      return;
+    }
   }
 
   await disconnect();
