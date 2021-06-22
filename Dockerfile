@@ -1,12 +1,12 @@
-FROM node:14
+FROM node:14-alpine
 
 WORKDIR /api
 
 COPY ./package.json /api
 
-RUN cd api && npm install
+RUN cd /api && npm install
 
-COPY . /api
+COPY ./src /api/src
 
 EXPOSE 3000
 
